@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Download, FileText, Info, Search, UserCheck } from "lucide-react";
 import TableInput from "./TableInput";
 import { numberToWords, formatCurrency, abbreviateCompanyName, getShortName } from "../lib/numberToWords";
-import { generateDocx } from "../lib/docxUtils";
+import { generateDocx, generateTableXml } from "../lib/docxUtils";
 import { Partner } from "../types";
 
 interface ContractFormProps {
@@ -112,13 +112,13 @@ const ContractForm: React.FC<ContractFormProps> = ({ template }) => {
 
     const data = {
       ...formData,
-      BANGGIATRITHUEXE: tableData.map((row) => ({
+      BANGGIATRITHUEXE: generateTableXml(tableData.map((row) => ({
         ...row,
         donGia: formatCurrency(row.donGia),
         thanhTien: formatCurrency(row.thanhTien),
         vat: formatCurrency(row.vat),
         tongCong: formatCurrency(row.tongCong),
-      })),
+      }))),
       GIATRIHOPDONG: formatCurrency(totalValue),
       BANGCHUGIATRI: numberToWords(totalValue),
     };

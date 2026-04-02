@@ -15,6 +15,64 @@ function customParser(tag: string) {
   };
 }
 
+export function generateTableXml(data: any[]) {
+  if (!data || data.length === 0) return '';
+
+  const headers = ['STT', 'Nội dung', 'ĐVT', 'Khối lượng', 'Đơn giá', 'Thời gian thuê', 'Thành tiền', 'VAT (8%)', 'Tổng cộng'];
+  
+  let xml = `<w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="5000" w:type="pct"/>
+      <w:tblBorders>
+        <w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+        <w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+        <w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+        <w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+        <w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+        <w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+      </w:tblBorders>
+    </w:tblPr>`;
+
+  // Header row
+  xml += `<w:tr>`;
+  for (const header of headers) {
+    xml += `<w:tc>
+      <w:tcPr><w:tcW w:w="0" w:type="auto"/></w:tcPr>
+      <w:p>
+        <w:pPr><w:jc w:val="center"/></w:pPr>
+        <w:r><w:rPr><w:b/></w:rPr><w:t>${header}</w:t></w:r>
+      </w:p>
+    </w:tc>`;
+  }
+  xml += `</w:tr>`;
+
+  // Data rows
+  for (const row of data) {
+    const cells = [
+      row.stt,
+      row.noiDung,
+      row.dvt,
+      row.khoiLuong,
+      row.donGia,
+      row.thoiGianThue,
+      row.thanhTien,
+      row.vat,
+      row.tongCong
+    ];
+    xml += `<w:tr>`;
+    for (const cell of cells) {
+      xml += `<w:tc>
+        <w:tcPr><w:tcW w:w="0" w:type="auto"/></w:tcPr>
+        <w:p><w:r><w:t>${cell !== undefined && cell !== null ? cell : ''}</w:t></w:r></w:p>
+      </w:tc>`;
+    }
+    xml += `</w:tr>`;
+  }
+
+  xml += `</w:tbl>`;
+  return xml;
+}
+
 export async function generateDocx(templateFile: ArrayBuffer, data: any, fileName: string) {
   const zip = new PizZip(templateFile);
   
@@ -29,6 +87,9 @@ export async function generateDocx(templateFile: ArrayBuffer, data: any, fileNam
     content = content.replace(/\[([^\]]+)\]/g, (match, p1) => {
       return `[${p1.replace(/<[^>]+>/g, '')}]`;
     });
+
+    // Change [BANGGIATRITHUEXE] to [@BANGGIATRITHUEXE] to allow raw XML injection
+    content = content.replace(/\[BANGGIATRITHUEXE\]/g, '[@BANGGIATRITHUEXE]');
 
     zip.file(fileName, content);
   });
