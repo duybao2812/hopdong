@@ -135,6 +135,7 @@ const ContractForm: React.FC<ContractFormProps> = ({ template }) => {
     try {
       await generateDocx(template, data, fileName);
     } catch (error) {
+      console.error("Docx generation error:", error);
       alert("Có lỗi xảy ra khi tạo hợp đồng. Vui lòng kiểm tra lại file mẫu.");
     }
   };

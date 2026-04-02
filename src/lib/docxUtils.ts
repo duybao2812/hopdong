@@ -14,6 +14,10 @@ export async function generateDocx(templateFile: ArrayBuffer, data: any, fileNam
     doc.render(data);
   } catch (error: any) {
     console.error("Error rendering docx:", error);
+    if (error.properties && error.properties.errors instanceof Array) {
+      const errorMessages = error.properties.errors.map((e: any) => e.properties.explanation).join("\n");
+      console.error("Docxtemplater specific errors:", errorMessages);
+    }
     throw error;
   }
 

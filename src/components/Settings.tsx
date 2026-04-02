@@ -209,7 +209,22 @@ const Settings: React.FC<SettingsProps> = ({ onTemplateChange, currentTemplateNa
               <span>{"{{MONTH_HOPDONG}}"}</span>
               <span>{"{{YEAR_HOPDONG}}"}</span>
               <span>{"{{BEN_A}}"}</span>
+              <span>{"{{GIOITINHBENA}}"}</span>
               <span>{"{{DAIDIENBENA}}"}</span>
+              <span>{"{{CHUCVUBENA}}"}</span>
+              <span>{"{{DIACHIBENA}}"}</span>
+              <span>{"{{MSTBENA}}"}</span>
+              <span>{"{{STKBENA}}"}</span>
+              <span>{"{{NGANHANGBENA}}"}</span>
+              <span>{"{{BEN_B}}"}</span>
+              <span>{"{{GIOITINHBENB}}"}</span>
+              <span>{"{{DAIDIENBENB}}"}</span>
+              <span>{"{{CHUCVUBENB}}"}</span>
+              <span>{"{{DIACHIBENB}}"}</span>
+              <span>{"{{MSTBENB}}"}</span>
+              <span>{"{{STKBENB}}"}</span>
+              <span>{"{{NGANHANGBENB}}"}</span>
+              <span>{"{{TENCONGTRINH}}"}</span>
               <span>{"{{BANGGIATRITHUEXE}}"} (Table)</span>
               <span>{"{{GIATRIHOPDONG}}"}</span>
               <span>{"{{BANGCHUGIATRI}}"}</span>
