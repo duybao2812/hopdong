@@ -203,31 +203,31 @@ const Settings: React.FC<SettingsProps> = ({ onTemplateChange, currentTemplateNa
             <p className="font-bold">Lưu ý về các Placeholder trong file mẫu:</p>
             <p>Đảm bảo file .docx của bạn chứa các thẻ sau để dữ liệu được điền chính xác:</p>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-xs bg-white/50 p-2 rounded">
-              <span>{"{{TEN_CTY_VIET_TAT}}"}</span>
-              <span>{"{{SO_HOPDONG}}"}</span>
-              <span>{"{{DAY_HOPDONG}}"}</span>
-              <span>{"{{MONTH_HOPDONG}}"}</span>
-              <span>{"{{YEAR_HOPDONG}}"}</span>
-              <span>{"{{BEN_A}}"}</span>
-              <span>{"{{GIOITINHBENA}}"}</span>
-              <span>{"{{DAIDIENBENA}}"}</span>
-              <span>{"{{CHUCVUBENA}}"}</span>
-              <span>{"{{DIACHIBENA}}"}</span>
-              <span>{"{{MSTBENA}}"}</span>
-              <span>{"{{STKBENA}}"}</span>
-              <span>{"{{NGANHANGBENA}}"}</span>
-              <span>{"{{BEN_B}}"}</span>
-              <span>{"{{GIOITINHBENB}}"}</span>
-              <span>{"{{DAIDIENBENB}}"}</span>
-              <span>{"{{CHUCVUBENB}}"}</span>
-              <span>{"{{DIACHIBENB}}"}</span>
-              <span>{"{{MSTBENB}}"}</span>
-              <span>{"{{STKBENB}}"}</span>
-              <span>{"{{NGANHANGBENB}}"}</span>
-              <span>{"{{TENCONGTRINH}}"}</span>
-              <span>{"{{BANGGIATRITHUEXE}}"} (Table)</span>
-              <span>{"{{GIATRIHOPDONG}}"}</span>
-              <span>{"{{BANGCHUGIATRI}}"}</span>
+              <span>{"[TEN_CTY_VIET_TAT]"}</span>
+              <span>{"[SO_HOPDONG]"}</span>
+              <span>{"[DAY_HOPDONG]"}</span>
+              <span>{"[MONTH_HOPDONG]"}</span>
+              <span>{"[YEAR_HOPDONG]"}</span>
+              <span>{"[BEN_A]"}</span>
+              <span>{"[GIOITINHBENA]"}</span>
+              <span>{"[DAIDIENBENA]"}</span>
+              <span>{"[CHUCVUBENA]"}</span>
+              <span>{"[DIACHIBENA]"}</span>
+              <span>{"[MSTBENA]"}</span>
+              <span>{"[STKBENA]"}</span>
+              <span>{"[NGANHANGBENA]"}</span>
+              <span>{"[BEN_B]"}</span>
+              <span>{"[GIOITINHBENB]"}</span>
+              <span>{"[DAIDIENBENB]"}</span>
+              <span>{"[CHUCVUBENB]"}</span>
+              <span>{"[DIACHIBENB]"}</span>
+              <span>{"[MSTBENB]"}</span>
+              <span>{"[STKBENB]"}</span>
+              <span>{"[NGANHANGBENB]"}</span>
+              <span>{"[TENCONGTRINH]"}</span>
+              <span>{"[BANGGIATRITHUEXE]"} (Table)</span>
+              <span>{"[GIATRIHOPDONG]"}</span>
+              <span>{"[BANGCHUGIATRI]"}</span>
             </div>
           </div>
         </div>

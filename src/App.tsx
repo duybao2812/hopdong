@@ -53,7 +53,7 @@ export default function App() {
               </div>
               <div>
                 <h1 className="text-xl md:text-2xl font-black text-blue-600 tracking-tight leading-none uppercase">HỆ THỐNG TẠO HỢP ĐỒNG TỰ ĐỘNG</h1>
-                <p className="text-xs font-medium text-gray-500 mt-1">Made by Bảo Bảo - v1.2</p>
+                <p className="text-xs font-medium text-gray-500 mt-1">Made by Bảo Bảo - v1.3</p>
               </div>
             </div>
 

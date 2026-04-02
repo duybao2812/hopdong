@@ -24,18 +24,10 @@ export async function generateDocx(templateFile: ArrayBuffer, data: any, fileNam
   xmlFiles.forEach(fileName => {
     let content = zip.files[fileName].asText();
     
-    // Find all occurrences of { and } and remove any XML tags between them
-    // This handles cases where the {{ or }} themselves are split by XML tags
-    content = content.replace(/\{([^{}]*?)\{/g, (match, p1) => {
-      return `{{${p1.replace(/<[^>]+>/g, '')}`;
-    });
-    content = content.replace(/\}([^{}]*?)\}/g, (match, p1) => {
-      return `${p1.replace(/<[^>]+>/g, '')}}}`;
-    });
-    
-    // Now clean up the content inside the {{ }}
-    content = content.replace(/\{\{([^{}]+)\}\}/g, (match, p1) => {
-      return `{{${p1.replace(/<[^>]+>/g, '')}}}`;
+    // Clean up the content inside the [ ]
+    // This handles cases where the text inside [ ] is split by XML tags
+    content = content.replace(/\[([^\]]+)\]/g, (match, p1) => {
+      return `[${p1.replace(/<[^>]+>/g, '')}]`;
     });
 
     zip.file(fileName, content);
@@ -47,6 +39,7 @@ export async function generateDocx(templateFile: ArrayBuffer, data: any, fileNam
     parser: customParser,
     // Add error handling to ignore duplicate tags caused by Word's internal formatting
     errorLogging: "json",
+    delimiters: { start: '[', end: ']' },
   });
 
   try {
