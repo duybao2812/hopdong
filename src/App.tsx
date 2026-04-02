@@ -52,8 +52,8 @@ export default function App() {
                 <FileText className="text-white w-6 h-6" />
               </div>
               <div>
-                <h1 className="text-xl font-black text-gray-900 tracking-tight leading-none">CONTRACT GEN</h1>
-                <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1">Hệ thống tạo hợp đồng tự động</p>
+                <h1 className="text-xl md:text-2xl font-black text-blue-600 tracking-tight leading-none uppercase">HỆ THỐNG TẠO HỢP ĐỒNG TỰ ĐỘNG</h1>
+                <p className="text-xs font-medium text-gray-500 mt-1">Made by Bảo Bảo - v1.2</p>
               </div>
             </div>
 
