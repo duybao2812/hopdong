@@ -82,6 +82,11 @@ export function abbreviateCompanyName(name: string): string {
   return res;
 }
 
+export function toTitleCase(str: string): string {
+  if (!str) return "";
+  return str.toLowerCase().split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+}
+
 export function getShortName(name: string): string {
   if (!name) return "";
   let res = name.toUpperCase();

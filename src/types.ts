@@ -1,4 +1,6 @@
 
+export type ContractType = "HDTX" | "HDTC" | "HDNT";
+
 export interface Partner {
   id: string;
   name: string;
@@ -11,6 +13,12 @@ export interface Partner {
   bankName: string;
 }
 
+export interface TaxRule {
+  id: string;
+  itemName: string;
+  taxRate: 8 | 10;
+}
+
 export interface TableRow {
   stt: number;
   noiDung: string;
@@ -19,6 +27,22 @@ export interface TableRow {
   donGia: number;
   thoiGianThue: number;
   thanhTien: number;
-  vat: number;
+  vat8?: number;
+  vat10?: number;
+  vat: number; // For backward compatibility or single VAT cases
   tongCong: number;
+}
+
+export interface ContractRecord {
+  id: string;
+  contractNumber: string;
+  partnerA: string;
+  partnerB: string;
+  date: string;
+  type: ContractType;
+  totalValue: number;
+  createdAt: string;
+  status: "draft" | "completed";
+  formData: any;
+  tableData: TableRow[];
 }
